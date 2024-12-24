@@ -23,7 +23,5 @@ spec:
     {{ end }}
   {{- with .Values.spec.syncPolicy }}
   syncPolicy:
-    syncOptions:
-      - ServerSideApply=true # https://github.com/argoproj/argo-cd/issues/820#issuecomment-135463693
     {{- toYaml . | nindent 4 }}
   {{- end }}
