@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-hive-metastore-service-chart
+  repository: oci://ghcr.io/jaebchoi
+  version: 1.11.0-SNAPSHOT
+digest: sha256:1369ab97d8efd8baa3f287751d710231bb472ec48a3488712931be715e8ec834
+generated: "2024-12-24T12:57:20.048344-05:00"
