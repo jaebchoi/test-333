@@ -6,17 +6,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  {{- if eq .Values.configStore "enabled"}}
-  ignoreDifferences:
-    - group: ""
-      kind: ConfigMap
-      managedFieldsManagers:
-        - argocd-controller
-    - group: apps
-      kind: StatefulSet
-      managedFieldsManagers:
-        - argocd-controller
-  {{- end }}
   destination:
     namespace: test-333
     server: {{ .Values.spec.destination.server }}
@@ -34,5 +23,7 @@ spec:
     {{ end }}
   {{- with .Values.spec.syncPolicy }}
   syncPolicy:
+    syncOptions:
+      - ServerSideApply=true # https://github.com/argoproj/argo-cd/issues/820#issuecomment-135463693
     {{- toYaml . | nindent 4 }}
   {{- end }}
