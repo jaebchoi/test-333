@@ -80,4 +80,4 @@ aissemble-hive-metastore-service-chart:
           value: true
   exports:
     data:
-      configStore: enabled
+      configStore: disabled
